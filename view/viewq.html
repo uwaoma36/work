@@ -1,0 +1,24 @@
+
+ <div class="w3-container w3-teal">
+  <h1 class="w3-center">Edit Question Panel</h1>
+ </div>
+<div class="w3-margin">
+	<div class="w3-container">
+    <h2 class="w3-center">Question List</h2>
+    <p>Create,Edit,Delete</p>
+		<ul class="w3-ul">
+		  <li ng-repeat="q in qst">
+        <span class="w3-badge w3-teal">
+          {{$index+1}}
+        </span>&nbsp;&nbsp;
+     {{q.qt}}
+        <a class="w3-badge w3-teal" href="#/editq/{{q}}/{{$index+1}}" style="margin-left:20%;">
+          edit
+        <a>
+           <sapn class="w3-badge w3-teal" ng-click="delete($index)" style="margin-left:20%;">
+          delete
+        <span>
+     </li>
+		</ul>
+	</div>
+</div>
