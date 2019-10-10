@@ -1,0 +1,20 @@
+
+ <div class="w3-container w3-teal">
+  <h1 class="w3-center">Users Panel </h1>
+ </div>
+ 
+ <div ng-repeat="user in users" class="w3-row-padding w3-margin-top"> 
+ 
+	 <div ng-repeat="x in user" class="w3-third">
+    <a href="#/details/{{x}}">
+	  <div class="w3-card-2">
+	   <img src="img/1.jpg" style="width:100%"/>
+	   <div class="w3-container">
+	     <h4 class="w3-center">{{x.fname+"   "+x.lname}}</h4>
+	   </div>
+	  </div>
+    </a>
+	 </div>
+	 
+ </div>
+ 

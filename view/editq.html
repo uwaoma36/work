@@ -72,5 +72,23 @@ ng-model="q.optA" required>
    </p>
 	</form>
 	
+{{q.ans}}
+</div>
+    Option D
+     </option>
+			<option value="E" {{this.value==q.ans?selected:null}}>
+         Option E
+     </option>
+		</select>
+  </p>
+   
+    
+   <p>
+		 
+		  <button class="w3-btn-block w3-teal">submit</button>
+		  {{q.ans}}
+   </p>
+	</form>
+	
 {{qt}}
 </div>
