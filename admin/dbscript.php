@@ -1,0 +1,29 @@
+<?php
+ //database creation script
+ $host="localhost";$user="root";$password="";
+
+$con=mysqli_connect($host,$user,$password) or die("u
+nable to connect".mysql_error());
+
+ $db=mysqli_select_db($con,"science_quiz");
+ $query=
+"create table users(id int(5) PRIMARY KEY AUTO_INCREMENT ,fname varchar(50),lname varchar(50),email varchar(100) ,password varchar(100),date DATE);";
+
+$query.="create unique index mail_pass on users(email,password);";
+
+$query.="create table subjects(id int(5) PRIMARY KEY AUTO_INCREMENT,name varchar(20) NOT NULL UNIQUE);";
+
+$query.="create table questions(id int(5) PRIMARY KEY AUTO_INCREMENT,question varchar(300),optA varchar(50),optB varchar(50),optC varchar(50),optD varchar(50),optE varchar(50),ans varchar(50),subject varchar(20) NOT NULL,FOREIGN KEY(subject) REFERENCES subjects(name));";
+
+
+$query.="create unique index quest on questions(question,subject);";
+
+
+$query.="create table scores(id int(5) PRIMARY KEY AUTO_INCREMENT,userid varchar(100), FOREIGN KEY(userid) REFERENCES users(email),score int(3),subject varchar(20),time int(10),date DATE);";
+
+
+$query.="create unique index score_index on scores(score,subject);";
+ 
+$rs=mysqli_multi_query($con,$query);
+echo $rs;
+?>

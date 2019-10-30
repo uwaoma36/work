@@ -1,11 +1,11 @@
- <div class="w3-container w3-teal">
+<div class="w3-container w3-teal">
   <h1 class="w3-center">Edit Question Panel</h1>
  </div>
  
 <div class="w3-card-4 w3-margin">
 	
 	<div class="w3-container w3-teal">
-	  <h2 class="w3-center">Question Form</h2>
+	  <h2 class="w3-center">{{q.subject}} Questions</h2>
 	</div>
 	
 	<form class="w3-container">
@@ -14,7 +14,7 @@
 			<label class="w3-label w3-validate">
        question
      </label>
-			<textarea class="w3-input" ng-model="q.qt" type="text" required></textarea>
+			<textarea class="w3-input" ng-model="q.qst" type="text" required></textarea>
 		
 		</p>
 		
@@ -54,27 +54,20 @@ ng-model="q.optA" required>
 			<input class="w3-input" type="text" ng-model="q.optE" required>
 		</p>
    <p>
-	  <select class="w3-select w3-border" name="option" ng-model="q.ans">
+	  <select class="w3-select w3-border" 
+     ng-model="q.ans">
 		  <option value="" disabled selected>Choose your option</option>
-		  <option value="a">Option A</option>
-		  <option value="b">Option B</option>
-		  <option value="c">Option C</option>
-			<option value="d">Option D</option>
-			<option value="e">Option E</option>
-		</select>
-  </p>
-   
-    
-   <p>
-		 
-		  <button class="w3-btn-block w3-teal">submit</button>
-		
-   </p>
-	</form>
-	
-{{q.ans}}
-</div>
-    Option D
+		  <option value="A" {{this.value==q.ans? selected:null}}>
+        Option A
+      </option>
+		  <option value="B"{{this.value==q.ans?selected:null}}>
+         Option B
+      </option>
+		  <option value="C" {{this.value==q.ans?selected:null}}>
+         Option C
+      </option>
+			<option value="D" {{this.value==q.ans?selected:null}}>
+         Option D
      </option>
 			<option value="E" {{this.value==q.ans?selected:null}}>
          Option E
@@ -83,12 +76,15 @@ ng-model="q.optA" required>
   </p>
    
     
-   <p>
-		 
-		  <button class="w3-btn-block w3-teal">submit</button>
-		  {{q.ans}}
+   <p>		 
+     <input
+              type="submit"
+              class="w3-btn-block w3-teal"
+              ng-click="confirm('update',update,id)"
+              value="submit"
+              ng-disabled="form.$invalid"
+              >
+         
    </p>
-	</form>
-	
-{{qt}}
+	</form>	
 </div>

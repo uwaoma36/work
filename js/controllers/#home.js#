@@ -102,19 +102,17 @@ app.controller('submitq',function($scope,gen,$http){
 });
 
 
-app.controller('editq',function($scope,gen,$http,$routeParams){       
+app.controller('editq',function($scope,gen,$http,$routeParams){
+    var
     $scope.q=angular.fromJson($routeParams.q);
-    var oriq=angular.fromJson($routeParams.q);
-    
     $scope.id=$routeParams.id;
     $scope.confirm=gen.confirm;
     $scope.update=function(i){
 	alert(i);
-	alert(oriq['qst']);
 	var data={type:"update",
 		  qst:$scope.q,
-		  sbj:$routeParams.sbj,
-		  oriq:oriq['qst']
+		  sbj:$routeParams.sbj
+		  ori:
 		 };
 	data=JSON.stringify(data);
 	//alert(data);

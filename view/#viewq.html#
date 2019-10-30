@@ -15,7 +15,7 @@
         <a class="w3-badge w3-teal" href="#/editq/{{q}}/{{$index}}/{{q.subject}}" style="margin-left:20%;">
           edit
         <a>
-           <span class="w3-badge w3-teal" ng-click="confirm('delete',delete,$index)" style="margin-left:20%;">
+           <span class="w3-badge w3-teal" ng-click="d('delete')" style="margin-left:20%;">
           delete
         <span>
      </li>
